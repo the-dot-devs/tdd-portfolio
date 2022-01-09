@@ -1,0 +1,18 @@
+.nav {
+  transition: height ease-out 0.5s;
+}
+
+.passive_nav {
+  transition: all 1s;
+}
+
+.active_nav {
+  background-color: #0e161b;
+  transition: all 1s;
+}
+
+.past_max_nav {
+  background-color: #0e161b;
+  transform: translateY(-100%);
+  transition: all 1s;
+}
