@@ -8,41 +8,50 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Burger from "../burger.js/burger";
 import Menu from "../menu.js/menu";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import useDebounce from "../../hooks/useDebounce";
 
 export default function Navbar() {
-  const [scrollHeight, setScrollHeight] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState("top");
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const node = useRef();
   useOnClickOutside(node, () => setMenuOpen(false));
 
+  const debouncedScrollPos = useDebounce(prevScrollPos, 200);
+
   useEffect(() => {
-    const scrollYPosition = window.addEventListener("scroll", () => {
-      if (window.scrollY === 0) {
-        setScrollDirection(styles.passive_nav);
-      }
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
 
-      if (window.scrollY > scrollHeight) {
-        setScrollDirection(styles.past_max_nav);
-      }
+      setVisible(
+        (debouncedScrollPos > currentScrollPos &&
+          debouncedScrollPos - currentScrollPos > 70) ||
+          currentScrollPos < 10
+      );
 
-      if (window.scrollY < scrollHeight) {
-        setScrollDirection(styles.active_nav);
-      }
+      setPrevScrollPos(currentScrollPos);
+    };
 
-      setScrollHeight(window.scrollY);
-    });
+    window.addEventListener("scroll", handleScroll);
 
-    return () => scrollYPosition;
-  }, [scrollHeight]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [debouncedScrollPos, visible]);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
 
   return (
-    <nav className={`fixed  w-full py-4 z-50 ${scrollDirection} `} ref={node}>
+    <nav
+      className={`fixed w-full py-4 z-50 ${styles.nav}`}
+      ref={node}
+      style={{
+        top: visible ? "0" : "-68px",
+        backgroundColor: prevScrollPos === 0 ? "transparent" : "",
+      }}
+    >
       <div className="max-w-screen-2xl w-full mx-auto px-5 relative flex">
         <div className="text-white text-3xl">{"< T•D />"}</div>
         <div className="hidden sm:block sm:ml-auto">
@@ -88,7 +97,7 @@ const links = [
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "#contact",
     current: false,
   },
 ];

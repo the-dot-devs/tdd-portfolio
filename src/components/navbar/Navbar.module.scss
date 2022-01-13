@@ -1,5 +1,7 @@
 .nav {
-  transition: height ease-out 0.5s;
+  height: 68px;
+  background-color: #0e161b;
+  transition: all ease-out 0.6s;
 }
 
 .passive_nav {
@@ -7,7 +9,6 @@
 }
 
 .active_nav {
-  background-color: #0e161b;
   transition: all 1s;
 }
 
