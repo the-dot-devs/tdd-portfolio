@@ -4,10 +4,9 @@ import HeaderBar from "../../common/HeaderBar";
 export default function Services() {
   return (
     <section id="services" className="w-full ">
-      {/*  h-screen bg-circuit-flipped */}
       <div className="max-w-screen-2xl mx-auto bg-slate-600 rounded-3xl relative z-10">
         <HeaderBar id="Services" text="Services We Provide" />
-        <div className="p-6 py-16 flex bg-slate-700 pb-20">
+        <div className="p-6 py-16 flex bg-slate-800 pb-20">
           <div className="flex flex-wrap mx-auto justify-center">
             {servicesObject.map((service) => (
               <div

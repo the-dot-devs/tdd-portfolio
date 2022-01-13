@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Bios from "../components/Bios/Bios";
+import Contact from "../components/Contact/Contact";
 
 import Intro from "../components/Intro/intro";
 import Services from "../components/Services/Services";
@@ -25,6 +26,7 @@ export default function Home() {
             <Services />
             <Technologies />
             <Bios />
+            <Contact />
           </div>
         </div>
       </main>
