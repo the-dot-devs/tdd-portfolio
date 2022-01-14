@@ -17,7 +17,7 @@ const Menu = ({ open, setOpen }) => {
   // TODO EXTRACT CONTACT MAP
   function contactTile(contact) {
     return (
-      <div>
+      <div key={contact.alt}>
         <div className="w-[75px] h-[75px] flex items-center mx-5 my-6">
           <Link href={contact.link}>
             <a>

@@ -7,7 +7,7 @@ import email from "../../assets/email.svg";
 import resume from "../../assets/resume.svg";
 import globe from "../../assets/globe.svg";
 import HeaderBar from "../../common/HeaderBar";
-import jpsResume from "../../assets/jpsResume.pdf";
+/* import jpsResume from "../../assets/jpsResume.pdf"; */
 
 import Link from "next/link";
 
@@ -102,7 +102,7 @@ const biosRecords = [
     img: dmrPixel,
     githubLink: "https://github.com/dmrwebdev",
     email: "dmr.webdev@gmail.com",
-    resume: "#",
+    resume: "/Derek_Robertson_TDD_Resume_2021.pdf",
     portfolioLink: "https://www.developwithderek.com/",
     customImgStyle: "top-[20px]",
     color: "#0e7490",
@@ -114,7 +114,7 @@ const biosRecords = [
     customImgStyle: { top: "20px" },
     githubLink: "https://github.com/JosefSaltz",
     email: "jps.webdev@gmail.com",
-    resume: "#",
+    resume: "/Josef_Saltz_TDD_Resume_2021.pdf",
     portfolioLink: "https://www.josefsaltz.com/",
     color: "#031e2f",
   },

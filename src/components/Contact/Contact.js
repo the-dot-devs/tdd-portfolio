@@ -34,7 +34,7 @@ function ContactTile(contact) {
   const hoveredStyle = {};
 
   return (
-    <div>
+    <div key={contact.alt}>
       <div
         className={`w-[100px] h-[100px] flex items-center m-4 ${
           hovered ? styles.hovered : ""
