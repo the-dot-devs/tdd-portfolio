@@ -37,8 +37,6 @@ export default function Technologies() {
             </div>
           </div>
         </div>
-
-        <div></div>
       </section>
     </>
   );
