@@ -34,7 +34,7 @@ function ContactTile(contact) {
   const hoveredStyle = {};
 
   return (
-    <div key={contact.alt}>
+    (<div key={contact.alt}>
       <div
         className={`w-[100px] h-[100px] flex items-center m-4 ${
           hovered ? styles.hovered : ""
@@ -43,12 +43,12 @@ function ContactTile(contact) {
         onMouseLeave={() => setHovered(false)}
       >
         <Link href={contact.link}>
-          <a>
-            <Image src={contact.img} alt={contact.alt} />
-          </a>
+
+          <Image src={contact.img} alt={contact.alt} />
+
         </Link>
       </div>
-    </div>
+    </div>)
   );
 }
 

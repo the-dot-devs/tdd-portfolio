@@ -17,36 +17,36 @@ const Menu = ({ open, setOpen }) => {
   // TODO EXTRACT CONTACT MAP
   function contactTile(contact) {
     return (
-      <div key={contact.alt}>
+      (<div key={contact.alt}>
         <div className="w-[75px] h-[75px] flex items-center mx-5 my-6">
           <Link href={contact.link}>
-            <a>
-              <Image src={contact.img} alt={contact.alt} />
-            </a>
+
+            <Image src={contact.img} alt={contact.alt} />
+
           </Link>
         </div>
-      </div>
+      </div>)
     );
   }
 
   return (
-    <div className={`${styles.menu} `} open={open} style={open ? styled : {}}>
+    (<div className={`${styles.menu} `} open={open} style={open ? styled : {}}>
       <div className="grow flex flex-col justify-center">
-        <Link href="#services">
-          <a onClick={() => setOpen(false)} className="text-center">
+        <Link href="#services" onClick={() => setOpen(false)} className="text-center">
+          
             Services
-          </a>
+          
         </Link>
-        <Link href="#aboutUs">
-          <a onClick={() => setOpen(false)} className="text-center">
+        <Link href="#aboutUs" onClick={() => setOpen(false)} className="text-center">
+          
             About us
-          </a>
+          
         </Link>
       </div>
       <div className="mx-auto flex flex-wrap justify-center relative">
         {contactMap.map((contact) => contactTile(contact))}
       </div>
-    </div>
+    </div>)
   );
 };
 export default Menu;

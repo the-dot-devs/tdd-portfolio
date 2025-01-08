@@ -14,7 +14,7 @@ import Link from "next/link";
 export default function Bios() {
   function profileTile(profile) {
     return (
-      <div
+      (<div
         key={profile.name}
         className="max-w-lg flex flex-col justify-between text-white bg-slate-700 p-4 rounded-lg space-y-4 my-4 lg:mx-4"
       >
@@ -43,40 +43,39 @@ export default function Bios() {
             <p>{profile.bio}</p>
           </div>
         </div>
-
         <div className="flex justify-between items-center bg-white px-2 py-3 rounded-md bg-slate-500">
           <div className="w-[40px] flex items-center">
             <Link href={profile.githubLink}>
-              <a>
-                <Image src={github} alt="Github" />
-              </a>
+
+              <Image src={github} alt="Github" />
+
             </Link>
           </div>
           <div className="w-[40px]  flex items-center">
             <Link href={`mailto:${profile.email}`}>
-              <a>
-                <Image src={email} alt="Email" />
-              </a>
+
+              <Image src={email} alt="Email" />
+
             </Link>
           </div>
 
           <div className="w-[40px]  flex items-center">
             <Link href={profile.resume}>
-              <a>
-                <Image src={resume} alt="resume" />
-              </a>
+
+              <Image src={resume} alt="resume" />
+
             </Link>
           </div>
 
           <div className="w-[40px]  flex items-center">
-            <Link href={profile.portfolioLink}>
-              <a className="hover:fill-sky-500">
-                <Image src={globe} alt="Personal portfolio" />
-              </a>
+            <Link href={profile.portfolioLink} className="hover:fill-sky-500">
+
+              <Image src={globe} alt="Personal portfolio" />
+
             </Link>
           </div>
         </div>
-      </div>
+      </div>)
     );
   }
 
